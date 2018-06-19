@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mail Form</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    	<style>
+        	body {
+            	padding-top: 20px;
+            	padding-bottom: 20px;
+            	margin: 20px;
+        	}
+		
+    	</style>
+	</head>
+	<body>
+		<h1>Mail Form</h1>
+		<form action="/mail" method="get">
+			<select name="mailClass">
+				<option>Letters (Stamped)</option>
+				<option>Letters (Metered)</option>
+				<option>Large Envelopes (Flats)</option>
+				<option>First-Class Package Service—Retail</option>
+			</select><br><br>
+			Weight (oz.): <input type="number" step="0.01" name="weight"><br><br>
+			
+			<input type="submit" value="Calculte">
+		</form>
+		<hr>
+		<footer class="footer">
+    		<p>&copy; 83440 DJ Lim Website.</p>
+		</footer>
+	</body>
+</html>
