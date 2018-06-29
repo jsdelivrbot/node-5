@@ -1,0 +1,15 @@
+{
+  "name": "workout",
+  "version": "1.0.0",
+  "description": "Workout Project for cs313",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DJ Lim",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
+  }
+}
