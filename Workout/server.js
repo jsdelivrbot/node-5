@@ -40,15 +40,16 @@ function loginView(req, res, err) {
 function loginFunc(req, res) {
 	var values = req.body;
 	var username = values.username;
-	var sql = "SELECT firstname FROM users WHERE username = $1";
-	var param = [username];
+	var password = values.password;
+	var sql = "SELECT firstname FROM users WHERE username = $1 and password = $2";
+	var param = [username, password];
 	
 	pool.query(sql, param, function(err, result) {
 		if (err) {
 			console.log("An error with DB occured: ", err);
 		}
 		
-		if(result != null)
+		if(result != null && result.rowCount > 0)
 		{
 			console.log(result.rows[0].firstname);
 			var param = {firstname: result.rows[0].firstname.toString()};

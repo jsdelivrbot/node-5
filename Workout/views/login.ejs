@@ -11,14 +11,14 @@
 		<h4><a href="index.html" id="nav">Home</a></h4>
 		<br><br><br><h1 id="mainText">Log In</h1>
 	</div>
-	<p style="text-align: center"><%= message %></p>
 	<div id="container">
 		<br><br><h1>Log Into Your Account</h1><br><br>
 		<form action="/loginFunc" method="post" id="text">
-			Username: <input type="text" name="username"/><br><br>
-			Password: <input type="password" name="password" /><br><br>
+			Username: <input type="text" name="username" required/><br><br>
+			Password: <input type="password" name="password" required/><br><br>
 			<input type="submit" value="Log In" id="submit"/>
-		</form>
+		</form><br>
+		<p style="text-align: center"><%= message %></p>
 	</div><br><br><br>
 	<h5 id="top"><a href="register.html">Don't have an account? Register!</a></h5>
 	<br><br><br><hr>
