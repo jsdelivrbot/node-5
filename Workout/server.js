@@ -1,5 +1,8 @@
 var express = require("express");
 var app = express();
+var bodyParser = require('body-parser')
+
+
 
 const { Pool } = require("pg");
 
@@ -8,16 +11,79 @@ const pool = new Pool({connectionString: connectionString});
 
 app.set("port", (process.env.PORT || 5000));
 
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
 app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-
+app.engine('ejs', require('ejs').renderFile);
 app.get("/getUsers", getUsers); // getUsers/:id
 app.get("/getWorkouts", getWorkouts); 
+app.post("/register", register);
+app.post("/loginFunc", loginFunc);
+app.get("/loginView", loginView);
+app.get('/', (req, res) => {
+	res.render("index");
+});
 
 app.listen(app.get("port"), function() {
 	console.log("Now listening for connection on port: ", app.get("port")); 
 });
+
+function loginView(req, res, err) {
+		var param = {message: ""};
+		return res.render("login.ejs", param);
+}
+
+function loginFunc(req, res) {
+	var values = req.body;
+	var username = values.username;
+	var sql = "SELECT firstname FROM users WHERE username = $1";
+	var param = [username];
+	
+	pool.query(sql, param, function(err, result) {
+		if (err) {
+			console.log("An error with DB occured: ", err);
+		}
+		
+		if(result != null)
+		{
+			console.log(result.rows[0].firstname);
+			var param = {firstname: result.rows[0].firstname.toString()};
+			return res.render("index.ejs", param);
+		}
+		
+		else {
+			var param2 = {message: "* Login Failed. Please check your username/password and try again."};
+			return res.render("login.ejs", param2);
+		}
+	});
+	
+	
+}
+
+function register(req, res, err) {
+	if (err) {
+		console.log("There was an error: ", err);
+	}
+	var values = req.body;
+	var sql = "INSERT INTO users (firstname, lastname, username, password) VALUES ($1, $2, $3, $4);"
+	var params = [values.firstname, values.lastname, values.username, values.password];
+	
+	pool.query(sql, params, function(err, result) {
+		if (err) {
+			console.log("An error with DB occured: ", err);
+		}
+		
+	});
+	
+	console.log('Info: ' + values.firstname + ' ' + values.lastname + ' ' + values.username);
+	var params2 = {message: "* Congratulations! You have been registered!"}
+	
+	res.render('login', params2);
+}
 
 function getUsers(req, res) {
 	console.log("Getting user info");

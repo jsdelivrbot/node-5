@@ -1,21 +1,38 @@
-#main, #exercise, #todolist {
+#main, #exercise, #todolist, #register, #login {
 	height: 400px;
 	color: white;
 }
 
 #main {
 	background-image: url("main.jpeg");
+	background-size: 100%;
 }
 
 #exercise {
 	background-image: url("exercise.jpeg");
 	background-repeat: no-repeat;
 	background-position: center bottom;
+	background-size: 100%;
 }
 
 #todolist {
 	background-image: url("todolist.jpeg");
 	background-repeat:no-repeat;
+	background-size: 100%;
+}
+
+#register {
+	background-image: url("register.jpeg");
+	background-repeat:no-repeat;
+	background-size: 100%;
+	background-position: center bottom;
+}
+
+#login {
+	background-image: url("login.jpeg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center center;
 }
 
 h1 {
@@ -51,9 +68,10 @@ a:active {
 #section {
 	float: left;
 	width: 31%;
+	min-width: 20%;
 	margin: 15px;
 	border: solid black 1px;
-	height: 200px;
+	min-height: 250px;
 }
 
 #footerSec {
@@ -108,4 +126,13 @@ li:hover {
 #top {
 	transition: 1s;
 	text-align: center;
+}
+
+#text {
+	margin: 10px 0px 5px 40%;
+}
+
+#submit {
+	margin-left: 13%;
+	margin-top: 5%;
 }
