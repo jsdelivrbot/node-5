@@ -109,10 +109,6 @@ video {
 	opacity: 0;
 }
 
-#benefits {
-	margin-left: 36%;
-}
-
 li {
 	font-size: 25px;
 }
@@ -128,11 +124,25 @@ li:hover {
 	text-align: center;
 }
 
-#text {
-	margin: 10px 0px 5px 40%;
+#text, #myList, ul, li {
+	text-align: center;
+	margin: auto;
+	width: 70%;
+	list-style: none;
 }
 
-#submit {
-	margin-left: 13%;
-	margin-top: 5%;
+#front {
+	width: 150px; 
+}
+
+#todo {
+	width: 275px;
+	height: 30px;
+	border: solid 2px black;
+}
+
+input[type=button], input[type=submit] {
+    width: 20%;
+    height: 30px;
+    border-radius: 10px;
 }

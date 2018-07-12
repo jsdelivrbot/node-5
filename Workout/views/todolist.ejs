@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="icon.png" />
+		<title>Fitted || Workout App</title>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+			<link rel="stylesheet" href="main.css">
+    	<style>
+		
+    	</style>
+	</head>
+	<body>
+		<div class="jumbotron" id="todolist">
+			<h4><a href="/logout" id="nav">Log Out</a></h4>
+			<h4><a href="/todolist" id="nav">To-Do List</a></h4>
+			<h4><a href="/exercise" id="nav">Exercise</a></h4>
+			<h4><a href="/loginFunc2" id="nav">Home</a></h4>
+			<br><br><br><br><br>
+			<h1 id="mainText">To-do List</h1>
+		</div><br>
+		<div class="container" id="myList">
+			<form action="/addList" method="post">
+				<h1>Add a to-do list item here:</h1><br>
+				Workout ID: <input type="number" name="workoutId" id="todo"><br><br><br>
+				To-do List Item: <input type="text" name="todo" id="todo"><br><br><br><br>
+				<input type="submit" value="Add to the List"><br><br><br>
+			</form>
+			<p>* Workout IDs can be found in exercise tab.</p>
+		</div>
+		<hr>
+		<div class="container">
+			<h1>Your Current To-do List:</h1><br><br>
+			<ul>
+			<% results.forEach(function(result) { %>
+				<li><%=result.title %>: <%= result.listItem %></li>
+			<% }); %>
+			</ul>
+		</div>
+	</body>
+	<br><br><br><hr>
+	<footer class="footer">
+    	<br><h5>&copy; 83440 DJ Lim Website.</h5><br>
+    	<div class="container" id="footerSec">
+			<p>Email: <a href="mailto:lim@byui.edu?Subject=Hello" target="_top">lim12001@byui.edu</a></p>
+		</div>
+		<div class="container" id="footerSec">
+		</div>
+	</footer>
+</html>

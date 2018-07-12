@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="icon.png" />
+		<title>Fitted || Workout App</title>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+			<link rel="stylesheet" href="main.css">
+    	<style>
+		
+    	</style>
+	</head>
+	<body>
+		<div class="jumbotron" id="exercise">
+			<h4><a href="/logout" id="nav">Log Out</a></h4>
+			<h4><a href="/todolist" id="nav">To-Do List</a></h4>
+			<h4><a href="/exercise" id="nav">Exercise</a></h4>
+			<h4><a href="/loginFunc2" id="nav">Home</a></h4>
+			<br><br><br><br><br>
+			<h1 id="mainText">Exercise</h1>
+		</div><br>
+		<div class="container">
+			<h1>List of Exercises</h1><br><br>
+			<% results.forEach(function(result) { %>
+				<h2><%= result.id %>. <%= result.title %></h2><br>
+				<table class="table">
+				<tr><th id="front">Workout</th><th>Content</th></tr>
+				<tr><td id="front"><strong>ID</strong></td><td><%= result.id %></td></tr>
+				<tr><td id="front"><strong>Type</strong></td><td><%= result.type %></td></tr>
+				<tr><td id="front"><strong>Name</strong></td><td><%= result.title %></td></tr>
+				<tr><td id="front"><strong>Body Part</strong></td><td><%= result.bodypart %></td></tr>
+				<tr><td id="front"><strong>Description</strong></td><td><%= result.description %></td></tr>
+				</table><br><br>
+			<% }); %>
+		</div>
+	</body>
+	<br><br><br><hr>
+	<footer class="footer">
+    	<br><h5>&copy; 83440 DJ Lim Website.</h5><br>
+    	<div class="container" id="footerSec">
+			<p>Email: <a href="mailto:lim@byui.edu?Subject=Hello" target="_top">lim12001@byui.edu</a></p>
+		</div>
+		<div class="container" id="footerSec">
+		</div>
+	</footer>
+</html>
